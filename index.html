@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<script src="vendor/aframe/build/aframe.min.js"></script>
+<!-- include aframe-ar.js -->
+<script src="../build/aframe-ar.js"></script>
+<!-- Register an aframe component that allows reacting to marker events -->
+<script>
+	AFRAME.registerComponent('registerevents', {
+		init: function () {
+			var marker = this.el;
+			marker.addEventListener('markerFound', function() {
+				var markerId = marker.id;
+				console.log('markerFound', markerId);
+				// TODO: Add your own code here to react to the marker being found.
+			});
+			marker.addEventListener('markerLost', function() {
+				var markerId = marker.id;
+				console.log('markerLost', markerId);
+				// TODO: Add your own code here to react to the marker being lost.
+			});
+		}
+	});
+</script>
+<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
+<body style= 'margin : 0px; overflow: hidden'>
+  
+<a-assets>
+        <video 
+               id="alpha" 
+               autoplay loop="true" 
+      src="https://cdn.glitch.com/0673d92f-5151-4fea-beee-fd8a3573c5ed%2Ftelematica.webm?v=1560922613766">
+  </video>
+  </a-assets>
+  <a-scene arjs = "debugUIEnabled: false ; trackingmethod: best; patternRatio: 0.75 ; sourceType: webcam ;" > 
+<a-marker prehttps://rare-titanium.glitch.me/set="custom" ; type="pattern" url="https://cdn.glitch.com/0673d92f-5151-4fea-beee-fd8a3573c5ed%2Fpattern-telematica.patt?v=1560922888645" ; arjs-anchor="minConfidence: 1.000" ; "registerevents"; "emitevents" >
+<a-plane position="0 0.02 0" rotation="-90 0 0" width="4" height="4" material="src:#alpha" scale="3.28001 2.16 1.02" geometry="">
+
+  </a-plane>
+    </a-marker>
+  </a-scene>
+</body>
+
+<a-scene arjs="debugUIEnabled: false ; trackingmethod: best; patternRatio: 0.75 ; sourceType: webcam ;" > 
+<a-marker prehttps:="" rare-titanium.glitch.me="" set="custom" ;="" type="pattern" url="https://cdn.glitch.com/0673d92f-5151-4fea-beee-fd8a3573c5ed%2Fpattern-telematica.patt?v=1560922888645" arjs-anchor="minConfidence:1" "registerevents";="" "emitevents"="" visible="false" material="" arjs-hit-testing="">
+<a-plane position="0 0.01 0" rotation="-90 0 0" width="4" height="4" material="src:#alpha" scale="3.28001 2.16 1.02" geometry="">
+  </a-plane>
+    </a-marker>
+  </a-scene> 
